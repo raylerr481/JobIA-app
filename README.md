@@ -1,30 +1,37 @@
 # JobIA App
 
-**Aplicación Android oficial de JobIA.**
+**Canal Android oficial de JobIA.**
 
-JobIA App es el cliente móvil instalable del módulo de empleo de **Bitey IA Web**. No contiene el backend ni un motor de IA independiente.
+JobIA es el módulo especializado de empleo y trabajo de **Bitey IA**. Esta aplicación es únicamente su canal Android instalable: no contiene el backend ni una IA independiente.
 
 ## Arquitectura
 
 ```text
-Bitey IA Web
-  └── JobIA (backend / módulo de empleo)
-          │
-       HTTPS/JSON
-          │
-       JobIA App
-         Android
+                         BITEY IA
+                    inteligencia general
+                           │
+                        JobIA
+                  módulo de empleo
+                           │
+                    contrato jobia-v1
+                       ┌───┴───┐
+                       │       │
+                  JobIA-Web  JobIA-app
+                     Web      Android
+                    canal       canal
+
+Bitey IA Web = canal web de Bitey IA
 ```
 
-El mismo backend también es consumido por `JobIA-Web`.
+El mismo backend de JobIA sirve a `JobIA-Web` y `JobIA-app`.
 
 ## Repositorios relacionados
 
-- `bitey-web` → inteligencia general, memoria, herramientas, políticas y orquestación.
-- `JobIA` → backend especializado de empleo y API `jobia-v1`.
-- `JobIA-Web` → frontend web de JobIA.
-- `JobIA-app` → esta aplicación Android.
-- `bitey-trainer` → entrenamiento y validación interna de las capacidades de JobIA.
+- `bitey-web` → canal web de Bitey IA.
+- `JobIA` → módulo/backend especializado de empleo y API `jobia-v1`.
+- `JobIA-Web` → canal web de JobIA.
+- `JobIA-app` → este canal Android.
+- `bitey-trainer` → capacidad interna de Bitey IA para entrenamiento, evaluación y validación.
 
 ## Conexión con backend
 
@@ -52,4 +59,4 @@ eas build --platform android --profile preview
 
 ## Principio
 
-> **Bitey IA Web piensa y coordina; JobIA proporciona la capacidad especializada de empleo; JobIA App presenta esa capacidad en Android.**
+> **Bitey IA es el sistema general; JobIA es su módulo especializado de empleo; JobIA-app es el canal Android de JobIA; JobIA-Web es su canal web; Bitey IA Web es el canal web de Bitey IA.**
