@@ -1,49 +1,59 @@
 # JobIA App
 
-**Canal Android oficial de JobIA.**
+**Official Android channel of JobIA.**
 
-JobIA es el módulo especializado de empleo y trabajo de **Bitey IA**. Esta aplicación es únicamente su canal Android instalable: no contiene el backend ni una IA independiente.
+JobIA is the specialized employment and work module of **Bitey IA**. This application is only its installable Android channel. It does not contain the backend or an independent AI system.
 
-## Arquitectura
+## Language and naming standard
+
+All repository documentation, API contracts, frontend/backend references, variable names, TypeScript types, JSON keys, query parameters, configuration keys, and internal technical identifiers must use **English**.
+
+The user interface may be localized independently, but technical identifiers must remain English and consistent with JobIA-Web and the JobIA backend.
+
+Examples: `job_id`, `company`, `location`, `modality`, `kind`, `skills`, `match`, `application`, `EXPO_PUBLIC_JOBIA_API_URL`.
+
+Do not introduce Spanish variable names, JSON keys, API parameters, or internal identifiers in new code.
+
+## Architecture
 
 ```text
                          BITEY IA
-                    inteligencia general
+                    general intelligence
                            │
-                        JobIA
-                  módulo de empleo
+                         JobIA
+                  employment/work module
                            │
-                    contrato jobia-v1
+                    contract jobia-v1
                        ┌───┴───┐
                        │       │
                   JobIA-Web  JobIA-app
                      Web      Android
-                    canal       canal
+                    channel    channel
 
-Bitey IA Web = canal web de Bitey IA
+Bitey IA Web = web channel of Bitey IA
 ```
 
-El mismo backend de JobIA sirve a `JobIA-Web` y `JobIA-app`.
+The same JobIA backend serves `JobIA-Web` and `JobIA-app`.
 
-## Repositorios relacionados
+## Related repositories
 
-- `bitey-web` → canal web de Bitey IA.
-- `JobIA` → módulo/backend especializado de empleo y API `jobia-v1`.
-- `JobIA-Web` → canal web de JobIA.
-- `JobIA-app` → este canal Android.
-- `bitey-trainer` → capacidad interna de Bitey IA para entrenamiento, evaluación y validación.
+- `bitey-web` → web channel of Bitey IA.
+- `JobIA` → specialized employment/work module and API `jobia-v1`.
+- `JobIA-Web` → web channel of JobIA.
+- `JobIA-app` → this Android channel.
+- `bitey-trainer` → internal Bitey IA capability for training, evaluation, and validation.
 
-## Conexión con backend
+## Backend connection
 
-Configura la URL de la API con una variable de entorno de Expo:
+Configure the API URL through an Expo environment variable:
 
 ```bash
-EXPO_PUBLIC_JOBIA_API_URL=https://tu-backend-jobia.example
+EXPO_PUBLIC_JOBIA_API_URL=https://your-jobia-backend.example
 ```
 
-La aplicación no debe contener claves privadas, credenciales de proveedores ni claves `service_role` de Supabase.
+The application must not contain private keys, provider credentials, database credentials, or Supabase `service_role` keys.
 
-## Desarrollo
+## Development
 
 ```bash
 npm install
@@ -51,12 +61,12 @@ npm start
 npm run android
 ```
 
-Para generar un APK mediante EAS:
+To generate an APK with EAS:
 
 ```bash
 eas build --platform android --profile preview
 ```
 
-## Principio
+## Principle
 
-> **Bitey IA es el sistema general; JobIA es su módulo especializado de empleo; JobIA-app es el canal Android de JobIA; JobIA-Web es su canal web; Bitey IA Web es el canal web de Bitey IA.**
+> **Bitey IA is the general system; JobIA is its specialized employment/work module; JobIA-app is the Android channel of JobIA; JobIA-Web is its web channel; Bitey IA Web is the web channel of Bitey IA.**
